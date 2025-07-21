@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comenzá tu Impulso - Serprofesionalonline</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="style.css?v=110">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="manifest" href="site.webmanifest" />
+</head>
+<body class="page-link-in-bio-v3"> <header class="header-global">
+        <div class="container header-content">
+            <div class="logo"><a href="index.html">serprofesionalonline</a></div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">inicio</a></li>
+                    <li><a href="impulso-inicial.html">impulso inicial</a></li>
+                    <li><a href="blog/blog.html">ideas</a></li>
+                    <li><a href="index.html#contact-section">contacto</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main class="lib-v3-container">
+        <div class="lib-header">
+            <h1>Empezá tu transformación digital</h1>
+            <p>Elegí el siguiente paso para ordenar tu presencia online.</p>
+        </div>
+
+        <div class="lib-buttons">
+            
+            <button class="accordion">1. Agendá tu Impulso Inicial (ARS)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>Al hacer clic en el botón de abajo, primero completarás un breve formulario con tu nombre y email, y luego serás redirigido a Mercado Pago para abonar.</p>
+                    <a href="registro-impulso-ars.html" class="button panel-button">Comenzar Reserva (ARS)</a>
+                </div>
+            </div>
+
+            <button class="accordion">2. Agendá tu Impulso Inicial (UYU)</button>
+            <div class="panel">
+                <div class="panel-content">
+                    <p>Al hacer clic en el botón de abajo, primero completarás un breve formulario con tu nombre y email, y luego serás redirigido a Mercado Pago para abonar.</p>
+                    <a href="registro-impulso-uyu.html" class="button panel-button">Comenzar Reserva (UYU)</a>
+                </div>
+            </div>
+
+            <a href="impulso-inicial.html" class="lib-button">3. Conocé a fondo el Impulso Inicial</a>
+            
+            <a href="https://wa.me/59898712064?text=Hola%2C%20ya%20tengo%20el%20Impulso%20Inicial%20y%20quiero%20m%C3%A1s%21%20Necesito%20ayuda%20con..." target="_blank" class="lib-button">4. Ya tengo el Impulso. Quiero más.</a>
+
+            <a href="blog/blog.html" class="lib-button">5. Explorá nuestras Ideas y Estrategias</a>
+            
+            <hr class="leb-separator">
+            
+            <a href="https://wa.me/59898712064?text=Hola%2C%20llegu%C3%A9%20por%20link%20en%20bio%20y%20antes%20de%20pagar%20quiero...." target="_blank" class="lib-button">Consultar por WhatsApp</a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <strong>serprofesionalonline</strong>
+                <p>presencia real. sin vueltas.</p>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025 serprofesionalonline. todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordions = document.querySelectorAll('.accordion');
+            accordions.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                        panel.style.paddingTop = "0";
+                        panel.style.paddingBottom = "0";
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + 40 + "px"; // 40px extra for padding
+                        panel.style.paddingTop = "20px";
+                        panel.style.paddingBottom = "20px";
+                    } 
+                });
+            });
+
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            if(hamburger && mobileNav) {
+                // Lógica del menú hamburguesa si la necesitas
+            }
+        });
+    </script>
+</body>
+</html>

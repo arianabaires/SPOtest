@@ -1,0 +1,1337 @@
+/* style.css (Versión Consolidada y Corregida) */
+
+/* --- Paleta de Colores y Base --- */
+:root {
+    --color-text-dark: #1E1E1E;
+    --color-bg-light: #F7F3E9;
+    --color-accent-terracotta: #DC7A5F;
+    --color-accent-red: #CD3B3B;
+    --color-bg-neutral: #EAE3DB;
+    --color-bg-soft: #f8f5f2;
+    --color-text-secondary: #7A5C40;
+    --color-text-light: #BFA7F0;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    --color-shadow-strong: rgba(0, 0, 0, 0.15);
+    --color-border: #EAE6E1;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    background-color: var(--color-bg-light);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--color-text-dark);
+    margin-top: 0;
+    font-weight: 800;
+}
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; }
+h3 { font-size: clamp(1.5rem, 3.5vw, 1.8rem); font-weight: 700; }
+
+
+/* --- Header y Navegación (Estilo Original Restaurado) --- */
+.header-global {
+    background-color: rgba(247, 243, 233, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px var(--color-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.header-global .logo a {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    text-transform: lowercase;
+    letter-spacing: -0.03em;
+}
+.desktop-nav { display: none; }
+@media (min-width: 992px) { .desktop-nav { display: block; } }
+.header-global nav ul {
+    list-style: none; margin: 0; padding: 0; display: flex; align-items: center;
+}
+.header-global nav ul li {
+    margin-left: 25px; position: relative;
+}
+/* Restauración de los puntos separadores del menú */
+.header-global nav ul li:not(:last-child)::after {
+    content: '•';
+    position: absolute;
+    right: -15px;
+    color: #DDC8A4; /* Color sutil del punto */
+    font-size: 0.8em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.header-global nav ul li a {
+    font-family: 'Manrope', sans-serif; font-size: 1em; font-weight: 500;
+    color: var(--color-text-dark); text-decoration: none; position: relative;
+    transition: color 0.3s ease; text-transform: lowercase;
+}
+.header-global nav ul li a:hover { color: var(--color-accent-terracotta); }
+.header-global nav ul li a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background-color: var(--color-accent-terracotta);
+    transition: width 0.3s ease;
+}
+.header-global nav ul li a:hover::after { width: 100%; }
+.desktop-cta { margin-left: 30px; }
+
+/* Menú hamburguesa */
+.hamburger-menu { display: block; font-size: 1.8em; cursor: pointer; color: var(--color-text-dark); }
+@media (min-width: 992px) { .hamburger-menu { display: none; } }
+.mobile-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-bg-light); flex-direction: column; align-items: center; justify-content: center; z-index: 1001; transition: transform 0.4s ease-in-out; transform: translateX(100%); }
+.mobile-nav.is-active { transform: translateX(0); display: flex; }
+.mobile-nav ul { list-style: none; padding: 0; text-align: center; }
+.mobile-nav ul li { margin: 25px 0; }
+.mobile-nav ul li a { font-size: 1.8em; color: var(--color-text-dark); text-decoration: none; text-transform: lowercase; font-family: 'Manrope', sans-serif; font-weight: 600; }
+.mobile-nav .close-btn { position: absolute; top: 20px; right: 25px; font-size: 2.2em; cursor: pointer; color: var(--color-text-dark); }
+
+/* --- Botones --- */
+.button { display: inline-block; padding: 15px 35px; background-color: var(--color-accent-terracotta); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; }
+.button:hover { background-color: var(--color-accent-red); transform: translateY(-3px); }
+
+/* --- Estructura y Secciones (General) --- */
+main > section { padding: 4rem 1.5rem; }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.hero-home { padding: 80px 25px; text-align: center; }
+.hero-home .claim { color: var(--color-text-secondary); margin-bottom: 0.5em; }
+.hero-home .subclaim { max-width: 750px; margin: 0 auto 40px auto; }
+
+/* Íconos de la Home (Restaurados) */
+.quien-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.quien-item { text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+.quien-item i { font-size: 2rem; margin-bottom: 1rem; color: var(--color-text-dark); background-color: #f8f5f2; padding: 10px; border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 40px; }
+.quien-item p { font-size: 1rem; line-height: 1.5; margin: 0; }
+
+/* --- Estilos Página "Impulso Inicial" --- */
+.page-impulso-inicial .hero-impulso { text-align: center; border-bottom: 1px solid var(--color-border); padding-bottom: 4rem; }
+.page-impulso-inicial .hero-impulso h1 { color: var(--color-accent-terracotta); }
+.page-impulso-inicial .two-columns-section { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 768px) { .page-impulso-inicial .two-columns-section { grid-template-columns: 1fr 1fr; } }
+.page-impulso-inicial .column-image img { width: 100%; border-radius: 12px; }
+.page-impulso-inicial .quote-section { background-color: var(--color-bg-soft); text-align: center; }
+.page-impulso-inicial .quote-section blockquote p { font-family: 'Manrope', sans-serif; font-size: 1.5rem; font-style: italic; max-width: 800px; margin: 0 auto 1.5rem auto; }
+.page-impulso-inicial .quote-section blockquote footer { font-weight: 700; font-family: 'Lato', sans-serif; }
+.page-impulso-inicial .value-prop-block { background-color: var(--color-bg-soft); }
+.page-impulso-inicial .value-prop-grid { display: grid; gap: 3rem; align-items: stretch; }
+@media (min-width: 768px) { .page-impulso-inicial .value-prop-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Corrección de alineación para "¿Para quién es?" */
+.page-impulso-inicial .value-prop-column { display: flex; flex-direction: column; }
+.page-impulso-inicial .impulso-list { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; height: 100%; }
+.page-impulso-inicial .impulso-item { flex-grow: 1; display: flex; align-items: center; gap: 1.5rem; background-color: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; }
+.page-impulso-inicial .impulso-item i { color: var(--color-accent-terracotta); font-size: 1.75rem; width: 30px; text-align: center; flex-shrink: 0; }
+.page-impulso-inicial .impulso-item span { font-family: 'Manrope', sans-serif; }
+
+/* Estilo "Paso a paso" prolijo (Restaurado) */
+.page-impulso-inicial .process-section { text-align: center; }
+.page-impulso-inicial .process-steps { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem; }
+@media (min-width: 992px) { .page-impulso-inicial .process-steps { flex-direction: row; justify-content: center; gap: 0; } }
+.page-impulso-inicial .step { display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-soft); padding: 1rem; border-radius: 8px; width: 100%; max-width: 220px; text-align: left; }
+.page-impulso-inicial .step-number { background-color: var(--color-accent-terracotta); color: white; font-weight: 700; border-radius: 50%; width: 40px; height: 40px; display: grid; place-items: center; flex-shrink: 0; }
+.page-impulso-inicial .step-arrow { font-size: 1.5rem; color: #ccc; transform: rotate(90deg); }
+.page-impulso-inicial .step:last-of-type + .step-arrow { display: none; }
+@media (min-width: 992px) {
+    .page-impulso-inicial .step { width: auto; }
+    .page-impulso-inicial .step-arrow { transform: rotate(0deg); padding: 0 1rem; }
+}
+
+/* Testimonios y FAQ */
+.page-impulso-inicial .testimonial-section-impulso { background-color: var(--color-bg-soft); }
+.testimonial-grid { display: grid; gap: 2rem; max-width: 900px; margin: 3rem auto 0 auto; }
+@media (min-width: 768px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
+.testimonial-card { background-color: #fff; border-radius: 12px; padding: 2.5rem; box-shadow: 0 10px 30px var(--color-shadow); display: flex; flex-direction: column; }
+.testimonial-card p { font-style: italic; font-family: 'Manrope', sans-serif; flex-grow: 1; }
+.testimonial-card strong { font-weight: 700; font-family: 'Lato', sans-serif; display: block; margin-top: 1.5rem; }
+.testimonial-grid .testimonial-card:nth-child(3) { grid-column: 1 / -1; }
+.page-impulso-inicial .faq-section { background-color: var(--color-bg-soft); }
+.faq-grid { max-width: 800px; margin: 3rem auto 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+.faq-item { background-color: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; }
+.faq-item h4 { margin-bottom: 0.75rem; }
+
+/* === INICIA BLOQUE DE PRECIOS CORREGIDO Y AÑADIDO === */
+.pricing-section {
+    background-color: transparent;
+}
+.pricing-card {
+    text-align: center;
+    border: 1px solid #EAE6E1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: 2.5rem;
+    background-color: #fff;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+.old-price-final {
+    color: #888;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0ebe4;
+}
+.multi-price-container-final {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.price-option-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+.price-option-final + .price-option-final {
+    border-left: 1px solid #f0ebe4;
+}
+.price-option-final.price-main-final .amount-final {
+    font-size: 4.5rem;
+    color: var(--color-text-dark);
+}
+.currency-final {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+.amount-final {
+    font-family: 'Manrope', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #333;
+    line-height: 1;
+}
+.includes {
+    margin: 1.5rem 0;
+}
+.cta-button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
+}
+.disclaimer-text {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 1.5rem;
+}
+@media (max-width: 768px) {
+    .multi-price-container-final {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .price-option-final + .price-option-final {
+        border-left: none;
+        width: 100%;
+        padding-top: 1.5rem;
+        border-top: 1px solid #f0ebe4;
+    }
+    .price-option-final.price-main-final {
+        order: -1;
+    }
+}
+/* === TERMINA BLOQUE DE PRECIOS === */
+
+
+/* --- Formulario y Footer --- */
+.contact-form { margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; }
+.form-group { margin-bottom: 1.5rem; }
+.contact-form label { display: block; margin-bottom: 0.5rem; font-weight: 700; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; background-color: #fff; box-sizing: border-box; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-accent-terracotta); box-shadow: 0 0 0 3px rgba(217, 108, 71, 0.2); }
+/* --- Añadir esta regla para desactivar el re-escalado del textarea --- */
+.contact-form textarea {
+    resize: none; /* Desactiva la opción de estirar la caja */
+    min-height: 150px; /* Opcional: puedes darle un poco más de altura por defecto */
+}
+.footer { text-align: center; padding: 3rem 1.5rem; background-color: var(--color-text-dark); color: var(--color-bg-light); }
+.footer-top strong { font-size: 1.2rem; }
+.footer-top p { color: #ccc; margin: 0.25rem 0 1.5rem 0; }
+.footer-nav { margin-bottom: 1.5rem; }
+.footer-nav a { color: #fff; text-decoration: none; margin: 0 1rem; }
+.footer-nav a:hover { text-decoration: underline; }
+.footer-contact { margin-bottom: 2rem; }
+.footer-contact a { color: var(--color-bg-light); margin: 0 1rem; }
+.footer-copyright p { font-size: 0.8rem; color: #888; }
+/* --- Estilo Destacado para el Bloque CTA en la Home --- */
+.soft-cta-block {
+  background-color: var(--color-bg-neutral); /* Un fondo de color beige cálido para destacarlo */
+  border: none; /* Quitamos el borde para un look más moderno */
+  border-radius: 16px; /* Bordes un poco más redondeados */
+  padding: 3rem 2rem; /* Más espacio interior para que respire */
+  text-align: center; /* Asegura que todo el contenido esté centrado */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); /* Una sombra más pronunciada para darle profundidad */
+  margin: 4rem auto; /* Más margen vertical para separarlo del resto */
+  max-width: 800px; /* Un ancho máximo para que no se estire demasiado en pantallas grandes */
+}
+
+.soft-cta-block h3 {
+  font-size: 2rem; /* Título un poco más grande */
+  margin-bottom: 1rem;
+}
+
+.soft-cta-block p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+/* --- Ajustes de alineación para la página Link-in-Bio --- */
+.page-link-in-bio .accordion {
+    text-align: center; /* Centra el texto del botón */
+    padding-right: 50px; /* Añade espacio a la derecha para que el texto no se monte sobre el "+" */
+}
+
+/* Ajuste general para el layout de la página link-in-bio */
+.page-link-in-bio {
+    display: flex;
+    flex-direction: column; /* Cambiado para acomodar header y footer */
+    justify-content: space-between; /* Empuja el footer hacia abajo */
+    min-height: 100vh;
+}
+.page-link-in-bio .link-in-bio-container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+/* --- ESTILOS PARA LA PÁGINA LINK EN BIO (REDES SOCIALES) --- */
+.page-link-en-bio-v2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: var(--color-bg-light);
+}
+
+.leb-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.leb-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--color-accent-terracotta);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 1.5rem auto;
+    font-family: 'Manrope', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.leb-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.leb-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+
+.leb-socials a {
+    color: var(--color-text-secondary);
+    font-size: 1.8rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.leb-socials a:hover {
+    color: var(--color-accent-terracotta);
+    transform: translateY(-3px);
+}
+
+.leb-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.leb-button {
+    display: block;
+    width: 100%;
+    padding: 18px 20px;
+    background-color: #fff;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'Manrope', sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.leb-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+/* --- ESTILOS PARA LA PÁGINA LINK EN BIO (Versión Combinada) --- */
+.page-link-en-bio-v2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: var(--color-bg-light);
+}
+.leb-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+.leb-logo {
+    width: 120px; height: 120px; border-radius: 50%;
+    background-color: var(--color-accent-terracotta); color: #fff;
+    display: grid; place-items: center; margin: 0 auto 1.5rem auto;
+    font-family: 'Manrope', sans-serif; font-size: 2.5rem; font-weight: 800;
+}
+.leb-title {
+    font-family: 'Manrope', sans-serif; font-size: 1.8rem;
+    font-weight: 700; color: var(--color-text-dark);
+}
+.leb-socials {
+    display: flex; justify-content: center; gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+.leb-socials a {
+    color: var(--color-text-secondary); font-size: 1.8rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.leb-socials a:hover {
+    color: var(--color-accent-terracotta); transform: translateY(-3px);
+}
+.leb-buttons {
+    display: flex; flex-direction: column; gap: 1rem; width: 100%;
+}
+.leb-button, .accordion {
+    display: block; width: 100%; padding: 18px 20px;
+    background-color: #fff; color: var(--color-text-dark);
+    text-decoration: none; border-radius: 12px;
+    font-weight: 700; font-size: 1.1rem; font-family: 'Manrope', sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer;
+    position: relative; text-align: center;
+}
+.leb-button:hover, .accordion:hover {
+    transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.accordion { padding-right: 50px; }
+.accordion::after {
+    content: '+'; font-size: 1.5rem; color: var(--color-accent-terracotta);
+    position: absolute; right: 20px; top: 50%;
+    transform: translateY(-50%); transition: transform 0.3s ease;
+}
+.accordion.active::after { transform: translateY(-50%) rotate(45deg); }
+.panel {
+    background-color: var(--color-bg-soft); border: 1px solid var(--color-border);
+    border-top: none; border-radius: 0 0 12px 12px;
+    margin-top: -10px; box-shadow: 0 10px 15px -5px rgba(0,0,0,0.05);
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding-left: 1.5rem; padding-right: 1.5rem;
+}
+.panel-content { padding: 1.5rem 1rem; text-align: left; }
+.panel-content ol { padding-left: 20px; }
+.panel-content li { margin-bottom: 0.75rem; }
+.leb-separator {
+    border: none;
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 1rem 0;
+}
+/* --- ESTILOS PARA LA PÁGINA DE GRACIAS (THANK YOU PAGE) --- */
+.page-thank-you {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--color-bg-light);
+}
+
+.thank-you-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.thank-you-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    max-width: 750px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.thank-you-icon {
+    font-size: 3.5rem;
+    color: var(--color-accent-terracotta);
+    margin-bottom: 1rem;
+}
+
+.thank-you-card h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.thank-you-card .subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    color: var(--color-text-secondary);
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.step-box {
+    display: flex;
+    gap: 1.5rem;
+    text-align: left;
+    background-color: var(--color-bg-soft);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.step-box .step-number {
+    flex-shrink: 0;
+    background-color: var(--color-accent-terracotta);
+    color: white;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+}
+
+.step-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.step-content p {
+    margin: 0 0 1rem 0;
+    color: var(--color-text-secondary);
+}
+.step-content .button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.whatsapp-help {
+    margin-top: 2rem;
+}
+
+.whatsapp-help a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.whatsapp-help a:hover {
+    color: var(--color-accent-terracotta);
+}
+
+.whatsapp-help i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .thank-you-card { padding: 1.5rem; }
+    .step-box { flex-direction: column; text-align: center; align-items: center; }
+    .step-content { text-align: center; }
+}
+/* --- ESTILOS ADICIONALES PARA LA NUEVA THANK YOU PAGE --- */
+.email-instructions {
+    background-color: var(--color-bg-soft);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 2rem 0;
+    border: 1px solid var(--color-border);
+}
+.email-instructions p {
+    margin: 0.5rem 0;
+}
+/* --- ESTILOS PARA LA PÁGINA DE REGISTRO PRE-PAGO --- */
+.page-registro {
+    background-color: var(--color-bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.form-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    max-width: 550px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.form-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.form-card .form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding no desborde el ancho */
+}
+.form-card input[type="text"]:focus,
+.form-card input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-accent-terracotta);
+    box-shadow: 0 0 0 3px rgba(217, 108, 71, 0.2);
+}
+
+.form-card .button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+/* --- ESTILOS PARA LA SECCIÓN "PRÓXIMOS PASOS" EN PÁGINA DE REGISTRO --- */
+.proximos-pasos {
+    background-color: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.proximos-pasos h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.proximos-pasos ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.proximos-pasos li {
+    margin-bottom: 0.75rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.proximos-pasos li:last-child {
+    margin-bottom: 0;
+}
+/* --- ESTILOS PARA PÁGINA "LINK IN BIO" INTEGRADA (V3) --- */
+.page-link-in-bio-v3 {
+    background-color: var(--color-bg-light);
+}
+
+.lib-v3-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+/* Reutilizamos los estilos de botones que ya tenías */
+.page-link-in-bio-v3 .lib-buttons {
+    display: flex; flex-direction: column; gap: 1rem;
+}
+.page-link-in-bio-v3 .lib-button, .page-link-in-bio-v3 .accordion {
+    width: 100%; padding: 18px 20px; background-color: #fff;
+    color: var(--color-text-dark); text-decoration: none; border-radius: 12px;
+    font-weight: 700; font-size: 1.1rem; font-family: 'Manrope', sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid var(--color-border);
+    cursor: pointer; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative; text-align: center;
+}
+.page-link-in-bio-v3 .lib-button:hover, .page-link-in-bio-v3 .accordion:hover {
+    transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.page-link-in-bio-v3 .accordion { padding-right: 50px; }
+.page-link-in-bio-v3 .accordion::after {
+    content: '+'; font-size: 1.5rem; color: var(--color-accent-terracotta);
+    position: absolute; right: 20px; top: 50%;
+    transform: translateY(-50%); transition: transform 0.3s ease;
+}
+.page-link-in-bio-v3 .accordion.active::after { transform: translateY(-50%) rotate(45deg); }
+
+.page-link-in-bio-v3 .panel {
+    background-color: var(--color-bg-soft); border: 1px solid var(--color-border);
+    border-top: none; border-radius: 0 0 12px 12px; margin-top: -10px;
+    box-shadow: 0 10px 15px -5px rgba(0,0,0,0.05); max-height: 0;
+    overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 1.5rem;
+}
+.page-link-in-bio-v3 .panel-content {
+    text-align: center;
+}
+.page-link-in-bio-v3 .panel-content p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-secondary);
+}
+.page-link-in-bio-v3 .panel-button {
+    width: auto;
+    display: inline-block;
+}
+/* --- MEJORAS DE ESTILO PARA LA PÁGINA DEL BLOG (IDEAS) --- */
+
+/* 1. Estilo de "Tarjetas" para cada Post del Blog */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Crea una grilla responsive */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    padding-top: 2rem;
+    padding-bottom: 4rem; /* Más espacio antes del footer */
+}
+
+.blog-entry-card {
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-entry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.blog-entry-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--color-text-dark);
+    flex-grow: 1; /* Ayuda a alinear los botones si los textos tienen distinta longitud */
+}
+
+.blog-entry-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 1.5rem 0;
+}
+
+.blog-entry-card .link-text {
+    font-weight: 700;
+    color: var(--color-accent-terracotta);
+    text-decoration: none;
+    margin-top: auto; /* Empuja el link hacia abajo */
+}
+
+/* 2. Solución para los Links Azules (Visitados) */
+.blog-entry-card .link-text:visited {
+    color: var(--color-accent-terracotta); /* Mantiene el color terracota incluso después de visitar */
+}
+
+/* 3. Transición Suave hacia el Footer */
+.footer {
+    margin-top: 3rem; /* Añade un margen superior para separar el contenido */
+    border-top: 4px solid var(--color-bg-neutral); /* Añade un borde grueso pero sutil arriba */
+    padding-top: 3rem;
+}
+/* --- MEJORAS DE ESTILO PARA SECCIONES DEL INDEX --- */
+
+/* 1. Separación de Secciones y Contraste */
+/* Le damos un fondo suave a la sección de "Para quién es" para separarla */
+main > .content-section:has(.quien-grid) {
+    background-color: var(--color-bg-soft);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* También le damos fondo a la sección del formulario de contacto */
+#contact-section .section-block {
+    background-color: #fff;
+}
+
+
+/* 2. Estilo "Tarjeta" para los Ítems de "Para Quién Es" */
+.quien-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.quien-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quien-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+/* Ajustamos el ícono dentro de la nueva tarjeta */
+.quien-item i {
+    background-color: var(--color-bg-soft); /* Un fondo sutil para el círculo del ícono */
+    line-height: 40px; /* Asegura que el ícono esté centrado verticalmente */
+}
+
+/* 3. Transición Suave al Footer (Refuerzo del estilo) */
+/* Esta regla se asegura de que el footer siempre tenga un espacio y borde superior */
+.footer {
+    margin-top: 0; /* Reseteamos por si acaso */
+    border-top: 4px solid var(--color-bg-neutral);
+    padding-top: 3rem;
+}
+/* --- CORRECCIÓN Y MEJORA DE ESTILOS PARA INDEX.HTML --- */
+
+/* 1. Fondo de sección "Para quién es" con color oficial de marca */
+/* Usamos el Gris Claro #f8f5f2 del manual para crear una separación visual elegante */
+main > .content-section:has(.quien-grid) {
+    background-color: #f8f5f2; 
+    border-top: 1px solid #EAE6E1;
+    border-bottom: 1px solid #EAE6E1;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* 2. Estilo de "Tarjeta" para cada ítem, asegurando contraste y alineación */
+.quien-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.quien-item {
+    background-color: #FFFFFF; /* Fondo blanco puro para las tarjetas, como indica el manual */
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #EAE6E1;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.03); /* Sombra más sutil */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.quien-item i {
+    background-color: #f8f5f2; /* Círculo del ícono en gris claro para unificar */
+    line-height: 40px;
+    margin-bottom: 1.5rem; /* Más espacio entre el ícono y el texto */
+}
+
+/* 3. Estilos para la sección del Formulario de Contacto */
+#contact-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: transparent; /* Mantenemos el fondo principal "Hueso" */
+}
+
+#contact-section .section-block {
+    background-color: #FFFFFF; /* Tarjeta del formulario en blanco */
+    border: 1px solid #EAE6E1;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.contact-links-extra a {
+    color: #d96c47; /* Color terracota del manual */
+    font-weight: 700;
+    text-decoration: none;
+}
+.contact-links-extra a:visited {
+    color: #d96c47;
+}
+
+/* 4. Estilos para el Footer (Versión Final) */
+.footer {
+    background-color: #333333; /* Gris Oscuro del manual para el fondo */
+    color: #F7F3E9; /* Texto en color Hueso para alto contraste */
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    margin-top: 0;
+    border-top: none; /* Quitamos el borde superior, ya no es necesario */
+}
+/* Se asegura que todo el texto dentro del footer sea claro */
+.footer p, .footer a, .footer strong, .footer i {
+    color: inherit; 
+}
+.footer .footer-top strong {
+    color: #FFFFFF;
+}
+.footer .footer-top p {
+    color: #F7F3E9;
+    opacity: 0.8;
+}
+.footer-socials a:hover {
+    color: #d96c47; /* Acento terracota al pasar el mouse */
+    transform: translateY(-3px);
+}
+.footer-copyright p {
+    color: #555555; /* Gris Medio del manual */
+}
+/* --- ESTILOS PARA EL FOOTER (V.3 - REFINADO) --- */
+
+.footer {
+    background-color: #333333;
+    color: #F7F3E9;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    margin-top: 0;
+    border-top: none; /* Quitamos el borde sólido */
+    position: relative; /* Necesario para el efecto de "esfumado" */
+}
+
+/* Efecto de "esfumado" o sombra superior */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px; /* Altura de la sombra */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.08), transparent); /* El degradado que crea el efecto */
+}
+
+.footer .footer-top strong {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-family: 'Manrope', sans-serif; /* Aseguramos la tipografía correcta */
+    font-weight: 700;
+}
+
+.footer .footer-top p {
+    color: #F7F3E9;
+    opacity: 0.8;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; /* AUMENTAMOS EL "AIRE" ENTRE ICONOS */
+    margin: 2rem 0;
+}
+
+.footer-socials a {
+    color: #F7F3E9;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #d96c47;
+    transform: translateY(-3px);
+}
+
+.footer-copyright p {
+    color: #555555;
+    font-size: 0.9rem;
+}
+/* --- PENDIENTE: CORRECCIÓN DEL BOTÓN DEL HEADER --- */
+.header-global .desktop-cta {
+    text-transform: none; /* Permite controlar mayúsculas/minúsculas desde el HTML */
+    font-size: 1em; /* Asegura un tamaño consistente */
+}
+/* En móvil, el botón del menú desplegable se verá mejor */
+.mobile-nav .button {
+    margin-top: 1.5rem;
+    width: 80%;
+}
+/* --- PENDIENTE: NUEVO HERO PARA IMPULSO-INICIAL.HTML --- */
+.hero-impulso-v2 {
+    background-color: #f8f5f2; /* Color secundario del manual */
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+.hero-impulso-v2 h1 {
+    color: #d96c47; /* Color acento terracota */
+}
+/* --- CORRECCIÓN GENERAL DE ESPACIADO Y DISEÑO PARA IMPULSO-INICIAL.HTML --- */
+
+/* 1. Sistema de Ritmo Vertical para Títulos de Sección */
+/* Esto establece una distancia consistente y controlada para TODOS los títulos */
+.page-impulso-inicial .section-title {
+    margin-bottom: 2.5rem; /* Reduce el "abismo" después de los títulos */
+    margin-top: 4rem;      /* Asegura que haya "aire" ANTES de cada nueva sección */
+}
+/* Caso especial para el primer título, que no necesita tanto aire arriba */
+.page-impulso-inicial .process-section .section-title {
+    margin-top: 2rem;
+}
+
+
+/* 2. Ajuste de Espacio para Contenedores Específicos */
+/* Le damos más aire al contenedor de testimonios para separarlo del "paso a paso" */
+.page-impulso-inicial .testimonial-grid {
+    margin-top: 0;
+}
+/* Corregimos el espacio superior del contenedor de las dudas */
+.page-impulso-inicial .faq-grid {
+    margin-top: 0; /* Quitamos cualquier margen extra que cause el "abismo" */
+}
+
+
+/* 3. Ajuste de Tamaño en las Tarjetas de "Dudas Comunes" */
+/* Reducimos el padding interno para que no se vean tan vacías */
+.faq-item {
+    padding: 1.5rem;
+}
+
+
+/* --- REDISEÑO ESTRATÉGICO DE LA TARJETA DE PRECIOS --- */
+
+#pricing-section {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background-color: #f8f5f2; /* Fondo secundario del manual */
+    text-align: center;
+}
+
+/* La nueva tarjeta de inversión */
+.investment-card {
+    background-color: #FFFFFF;
+    border: 1px solid #EAE6E1;
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.investment-card .card-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.investment-card .price-anchor {
+    font-size: 1.1rem;
+    color: #555555;
+    margin: 0.5rem 0 2rem 0;
+}
+.investment-card .price-anchor s {
+    opacity: 0.7;
+}
+
+.investment-card .multi-price-container-final {
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0ebe4;
+}
+
+/* Estilos refinados para los números */
+.currency-final { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+.amount-final { font-size: 2.2rem; font-weight: 700; }
+.price-main-final .amount-final { font-size: 3.8rem; font-weight: 800; }
+
+
+/* Sección de valor reforzado con checkmarks */
+.value-recap {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.8;
+}
+
+.value-recap li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.value-recap .icon-check {
+    color: #d96c47; /* Acento terracota */
+}
+
+/* Nuevo botón de CTA con sub-etiqueta */
+.cta-button-container {
+    margin-top: 1.5rem;
+}
+
+.cta-button-container .button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.cta-button-container .sub-label {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    color: #555555;
+}
+
+/* Disclaimer mejorado */
+.investment-card .disclaimer-text {
+    font-size: 0.9rem;
+    color: #555555;
+    margin-top: 2rem;
+    line-height: 1.6;
+}
+.investment-card .disclaimer-text .icon-sparkle {
+    color: #d96c47;
+    margin-right: 0.25rem;
+}
+/* --- CORRECCIÓN ESTRUCTURAL Y DE ALINEACIÓN PARA IMPULSO-INICIAL.HTML --- */
+
+/* 1. Arreglo de la Navegación y el Header */
+/* Reafirmamos las reglas del flexbox para que todo se alinee correctamente */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* 2. Sistema de Contenedor Central para TODO el contenido */
+/* Esta es la regla más importante. Obliga a que el contenido de CADA sección
+   esté dentro de un contenedor centrado y con un ancho máximo. */
+.page-impulso-inicial main .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* Forzamos a que las secciones que tienen fondos de color ocupen todo el ancho,
+   pero el .container de adentro mantendrá el contenido alineado. */
+.page-impulso-inicial main > section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+
+/* 3. Aseguramos que los contenedores de grillas no generen conflicto */
+.value-prop-grid, .testimonial-grid, .faq-grid {
+    max-width: 900px; /* Unificamos el ancho máximo del contenido principal */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 4. Ajuste final para el título de la sección de precios */
+#pricing-section {
+    width: 100%; /* Asegura que el fondo de color ocupe toda la pantalla */
+}
+/* --- ESTILOS PARA EL MANIFIESTO TIPOGRÁFICO DE LA FUNDADORA --- */
+
+/* El CTA debajo de la cita */
+.quote-section .founder-cta {
+    display: block; margin-top: 1rem; font-size: 1.1rem; font-weight: 700;
+    color: #d96c47; text-decoration: none; transition: all 0.3s ease;
+}
+.quote-section .founder-cta:hover { opacity: 0.8; letter-spacing: 0.5px; }
+
+/* La sección del manifiesto */
+.founder-manifesto {
+    padding: 5rem 1.5rem; background-color: #f8f5f2;
+    border-top: 1px solid #EAE6E1; border-bottom: 1px solid #EAE6E1;
+}
+.founder-manifesto .section-title { text-align: left; margin-bottom: 2rem; }
+
+.manifesto-grid {
+    display: grid; grid-template-columns: 1fr; gap: 3rem;
+    align-items: center; max-width: 1100px; margin: 0 auto;
+}
+@media (min-width: 992px) {
+    .manifesto-grid { grid-template-columns: 2fr 1fr; }
+}
+
+.manifesto-text p {
+    font-family: 'Lato', sans-serif; font-size: 1.1rem; line-height: 1.8;
+    color: #555555; margin-bottom: 1.5rem;
+}
+
+/* El link a LinkedIn */
+.manifesto-text .linkedin-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #333333;
+    text-decoration: none;
+    border-bottom: 2px solid #d96c47;
+    transition: color 0.3s ease;
+}
+.manifesto-text .linkedin-link:hover {
+    color: #d96c47;
+}
+
+/* El contenedor de la cita destacada */
+.manifesto-pull-quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-left: 4px solid #d96c47;
+    background-color: #fff;
+    border-radius: 0 12px 12px 0;
+}
+
+.manifesto-pull-quote p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #333333;
+    margin: 0;
+}
+@media (max-width: 991px) {
+    .manifesto-pull-quote { border-left: none; border-top: 4px solid #d96c47; border-radius: 12px 12px 0 0; }
+}
+/* --- MÓDULO DE ESTILOS DEFINITIVO PARA IMPULSO-INICIAL.HTML --- */
+
+/* 1. SISTEMA DE ESPACIADO VERTICAL (Soluciona los "espacios brutales") */
+/* Se establece un padding consistente para todas las secciones principales de la página */
+.page-impulso-inicial main > section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #EAE6E1; /* Un sutil separador de secciones */
+}
+/* Se elimina el borde de la última sección para una transición limpia al footer */
+.page-impulso-inicial main > section:last-child {
+    border-bottom: none;
+}
+
+/* 2. CORRECCIÓN DEL MANIFIESTO Y LA "QUOTE BRUTA" */
+.founder-manifesto {
+    background-color: #f8f5f2;
+}
+
+.founder-manifesto .section-title {
+    margin-bottom: 2rem; /* Reduce el espacio debajo del título */
+}
+
+/* Arregla el diseño de la cita destacada para que sea elegante */
+.manifesto-pull-quote {
+    background-color: transparent; /* Elimina el fondo blanco */
+    padding: 1.5rem;
+    border-left: 3px solid #d96c47;
+    display: flex;
+    align-items: center;
+}
+.manifesto-pull-quote p {
+    font-size: 1.8rem; /* Reduce el tamaño de la letra "gigante" */
+    line-height: 1.5;
+    font-weight: 700;
+}
+@media (max-width: 991px) {
+    .manifesto-pull-quote { 
+        border-left: none; 
+        border-top: 3px solid #d96c47;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+}
+
+
+/* 3. ARREGLO DE ESPACIOS EN "DUDAS COMUNES" */
+.faq-section {
+    background-color: #FFFFFF; /* Fondo blanco para enmarcarla */
+}
+.faq-section .section-title {
+    margin-bottom: 3rem; /* Espacio controlado para el título */
+}
+.faq-grid {
+    margin-top: 0; /* Elimina el "abismo" de espacio */
+}
+
+
+/* 4. ALINEACIÓN GENERAL Y COHERENCIA */
+/* Esta regla asegura que todo el contenido principal esté centrado y alineado */
+.page-impulso-inicial main .container,
+.investment-card,
+.faq-grid,
+.testimonial-grid {
+    max-width: 960px; /* Unificamos el ancho de todo el contenido */
+    margin-left: auto;
+    margin-right: auto;
+}
